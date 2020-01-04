@@ -2,6 +2,7 @@ import os
 import re
 
 class ReadCounter:
+
     def read_file():
         file = os.path.join(os.getcwd(),'TextInput.txt')
         input = open(file, 'r')
@@ -39,14 +40,16 @@ class ReadCounter:
                 else:
                     continue
         print(counter)
-
-    def case_func():
-        var = input("Enter 1 : Get Counter for all the values in the text file\nEnter 2 : Get Counter of the Entered Input\n")
-        options = {"1" : ReadCounter.get_counter(),
-                   "2" : ReadCounter.get_counter_for_input()
-        }
-        return options[var]
     # map the inputs to the function blocks
+    def case_func():
+        var = int(input("Enter 1 : Get Counter for all the values in the text file\nEnter 2 : Get Counter of the Entered Input\n"))
+        if var == 1:
+            return ReadCounter.get_counter()
+        elif var == 2:
+            return ReadCounter.get_counter_for_input()
+        else:
+            print("Incorrect Selection")
+
 
 
 def main():
